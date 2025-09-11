@@ -51,8 +51,7 @@ public class TomcatConfig {
             tomcat.setProtocol("AJP/1.3");
             tomcat.getTomcatProtocolHandlerCustomizers().add(protocolHandler -> {
                 log.info("TomcatProtocolHandlerCustomizer protocolHandler={}", protocolHandler);
-                if (protocolHandler instanceof AjpNioProtocol) {
-                    AjpNioProtocol ajp = (AjpNioProtocol) protocolHandler;
+                if (protocolHandler instanceof AjpNioProtocol ajp) {
                     ajp.setSecretRequired(secretRequired);
                     ajp.setSecret(secret);
                     ajp.setTomcatAuthentication(tomcatAuthentication);
